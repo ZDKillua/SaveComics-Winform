@@ -1,0 +1,33 @@
+D:\Hoc tap\CN .NET\My Project\Save The Comic\SaveTheComic\SaveTheComic\bin\Debug\SaveTheComic.exe.config
+D:\Hoc tap\CN .NET\My Project\Save The Comic\SaveTheComic\SaveTheComic\bin\Debug\SaveTheComic.exe
+D:\Hoc tap\CN .NET\My Project\Save The Comic\SaveTheComic\SaveTheComic\bin\Debug\SaveTheComic.pdb
+D:\Hoc tap\CN .NET\My Project\Save The Comic\SaveTheComic\SaveTheComic\obj\Debug\SaveTheComic.csprojResolveAssemblyReference.cache
+D:\Hoc tap\CN .NET\My Project\Save The Comic\SaveTheComic\SaveTheComic\obj\Debug\SaveTheComic.Form1.resources
+D:\Hoc tap\CN .NET\My Project\Save The Comic\SaveTheComic\SaveTheComic\obj\Debug\SaveTheComic.Properties.Resources.resources
+D:\Hoc tap\CN .NET\My Project\Save The Comic\SaveTheComic\SaveTheComic\obj\Debug\SaveTheComic.csproj.GenerateResource.Cache
+D:\Hoc tap\CN .NET\My Project\Save The Comic\SaveTheComic\SaveTheComic\obj\Debug\SaveTheComic.exe
+D:\Hoc tap\CN .NET\My Project\Save The Comic\SaveTheComic\SaveTheComic\obj\Debug\SaveTheComic.pdb
+D:\Hoc tap\CN .NET\My Project\SaveTheComic\SaveTheComic\bin\Debug\SaveTheComic.exe.config
+D:\Hoc tap\CN .NET\My Project\SaveTheComic\SaveTheComic\obj\Debug\SaveTheComic.exe
+D:\Hoc tap\CN .NET\My Project\SaveTheComic\SaveTheComic\obj\Debug\SaveTheComic.pdb
+D:\Hoc tap\CN .NET\My Project\SaveTheComic\SaveTheComic\bin\Debug\SaveTheComic.exe
+D:\Hoc tap\CN .NET\My Project\SaveTheComic\SaveTheComic\bin\Debug\SaveTheComic.pdb
+D:\Hoc tap\CN .NET\My Project\SaveTheComic\SaveTheComic\obj\Debug\SaveTheComic.csprojResolveAssemblyReference.cache
+D:\Hoc tap\CN .NET\My Project\SaveTheComic\SaveTheComic\obj\Debug\SaveTheComic.Form1.resources
+D:\Hoc tap\CN .NET\My Project\SaveTheComic\SaveTheComic\obj\Debug\SaveTheComic.Properties.Resources.resources
+D:\Hoc tap\CN .NET\My Project\SaveTheComic\SaveTheComic\obj\Debug\SaveTheComic.csproj.GenerateResource.Cache
+D:\Hoc tap\CN .NET\My Project\SaveTheComic\SaveTheComic\obj\Debug\SaveTheComic.ucComic.resources
+D:\Hoc tap\CN .NET\My Project\SaveTheComic\SaveTheComic\obj\Debug\SaveTheComic.FormComic.resources
+D:\Hoc tap\CN .NET\My Project\SaveTheComic\SaveTheComic\obj\Debug\SaveTheComic.AlertForm.resources
+D:\HocTap\CN .NET\My Project\SaveTheComic\SaveTheComic\bin\Debug\SaveTheComic.exe.config
+D:\HocTap\CN .NET\My Project\SaveTheComic\SaveTheComic\obj\Debug\SaveTheComic.exe
+D:\HocTap\CN .NET\My Project\SaveTheComic\SaveTheComic\obj\Debug\SaveTheComic.pdb
+D:\HocTap\CN .NET\My Project\SaveTheComic\SaveTheComic\bin\Debug\SaveTheComic.exe
+D:\HocTap\CN .NET\My Project\SaveTheComic\SaveTheComic\bin\Debug\SaveTheComic.pdb
+D:\HocTap\CN .NET\My Project\SaveTheComic\SaveTheComic\obj\Debug\SaveTheComic.csprojResolveAssemblyReference.cache
+D:\HocTap\CN .NET\My Project\SaveTheComic\SaveTheComic\obj\Debug\SaveTheComic.AlertForm.resources
+D:\HocTap\CN .NET\My Project\SaveTheComic\SaveTheComic\obj\Debug\SaveTheComic.Form1.resources
+D:\HocTap\CN .NET\My Project\SaveTheComic\SaveTheComic\obj\Debug\SaveTheComic.FormComic.resources
+D:\HocTap\CN .NET\My Project\SaveTheComic\SaveTheComic\obj\Debug\SaveTheComic.Properties.Resources.resources
+D:\HocTap\CN .NET\My Project\SaveTheComic\SaveTheComic\obj\Debug\SaveTheComic.ucComic.resources
+D:\HocTap\CN .NET\My Project\SaveTheComic\SaveTheComic\obj\Debug\SaveTheComic.csproj.GenerateResource.Cache
