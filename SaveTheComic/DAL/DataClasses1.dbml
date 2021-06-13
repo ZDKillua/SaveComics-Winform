@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SaveComics" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=Killua\Sqlexpress;Initial Catalog=SaveComics;Integrated Security=True" SettingsObjectName="SaveTheComic.Properties.Settings" SettingsPropertyName="SaveComicsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.LoaiTruyen" Member="LoaiTruyens">
+    <Type Name="LoaiTruyen">
+      <Column Name="maLoai" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tenLoai" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="LoaiTruyen_Truyen" Member="Truyens" ThisKey="maLoai" OtherKey="maLoai" Type="Truyen" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Truyen" Member="Truyens">
+    <Type Name="Truyen">
+      <Column Name="maTruyen" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="tenTruyen" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="chap" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="maLoai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ngayDocCuoi" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="img" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="hot" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="blackList" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="noiDung" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="LoaiTruyen_Truyen" Member="LoaiTruyen" ThisKey="maLoai" OtherKey="maLoai" Type="LoaiTruyen" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
