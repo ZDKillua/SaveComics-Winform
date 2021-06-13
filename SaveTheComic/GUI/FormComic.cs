@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SaveTheComic.DAL;
+using SaveTheComic.BUS;
 
 
 namespace SaveTheComic.GUI
@@ -17,7 +18,7 @@ namespace SaveTheComic.GUI
     public partial class FormComic : Form
     {
         public string xuly = string.Empty; // Cờ xử lý add hay edit
-        public Truyen t;
+        public Truyen t = new Truyen();
 
         #region Move Form
         const int WM_NCHITTEST = 0x84;
@@ -70,8 +71,30 @@ namespace SaveTheComic.GUI
             {
                 cboLoai.Items.Add(item.tenLoai);
             }
+            cboLoai.DisplayMember = "tenLoai";
+            
 
+            if (this.t.maLoai != null)
+            {
+                txtName.Text = t.tenTruyen;
+                txtChap.Text = t.chap.ToString();
+                cboLoai.SelectedItem = DBGet<LoaiTruyen>.getData("maLoai", t.maLoai.ToString()).tenLoai;
+                dtpDate.Value = t.ngayDocCuoi.Value;
+                chkHot.Checked = t.hot.Value;
+                txtMota.Text = t.noiDung;
 
+                MemoryStream memoryStream = new MemoryStream(t.img.ToArray());
+                Image img = Image.FromStream(memoryStream);
+                if (img == null)
+                    return;
+                pictureBox1.Image = img;
+                pictureBox1.Name = t.maTruyen.ToString();
+                labAnh.Hide();
+                return;
+            }
+
+            cboLoai.SelectedIndex = 0;
+            dtpDate.Value = DateTime.Now;
         }
 
         private void btnFile_Click(object sender, EventArgs e)
@@ -107,45 +130,27 @@ namespace SaveTheComic.GUI
                 return;
             }
 
-            //if (btnXN.Text == "Thêm")
-            //{
-            //    comic = new Comic();
-            //    comic.Name = txtName.Text;
-            //    comic.Chap = int.Parse(txtChap.Text);
-            //    comic.Loai = cboLoai.SelectedItem.ToString();
-            //    comic.Date = dtpDate.Value;
-            //    comic.Anh = fileName;
-            //    if (chkHot.Checked)
-            //        comic.Hot = 1;
-            //    else
-            //        comic.Hot = 0;
-            //    if (txtMota.Text.Length > 0)
-            //        comic.Mota = txtMota.Text;
-            //    else
-            //        comic.Mota = string.Empty;
-            //    listComic.Add(comic);
-            //    ghiFileComic();
-            //    Form1.Alert("Đã thêm " + comic.Name, AlertForm.enmType.Success);
-            //}
-            //else
-            //{
-            //    Comic comic = listComic.FirstOrDefault(x => x.Name == this.comic.Name);
-            //    comic.Name = txtName.Text;
-            //    comic.Chap = int.Parse(txtChap.Text);
-            //    comic.Loai = cboLoai.SelectedItem.ToString();
-            //    comic.Date = dtpDate.Value;
-            //    comic.Anh = fileName;
-            //    if (txtMota.Text.Length > 0)
-            //        comic.Mota = txtMota.Text;
-            //    else
-            //        comic.Mota = string.Empty;
-            //    if (chkHot.Checked)
-            //        comic.Hot = 1;
-            //    else
-            //        comic.Hot = 0;
-            //    ghiFileComic();
-            //    Form1.Alert("Thay đổi " + comic.Name + " thành công !", AlertForm.enmType.Info);
-            //}
+            t.tenTruyen = txtName.Text;
+            t.chap = int.Parse(txtChap.Text);
+            t.maLoai = DBGet<LoaiTruyen>.getData("tenLoai", cboLoai.SelectedItem.ToString()).maLoai;
+            t.ngayDocCuoi = dtpDate.Value;
+            t.hot = chkHot.Checked;
+            t.noiDung = txtMota.Text;
+
+            // lưu image vào database
+            MemoryStream stream = new MemoryStream();
+            pictureBox1.Image.Save(stream, ImageFormat.Jpeg);
+            t.img = stream.ToArray();
+
+            
+            if (btnXN.Text == "Thêm")
+            {
+                BUSTruyen.themTruyen(t);
+            }
+            else
+            {
+                BUSTruyen.capNhatTruyen(t);
+            }
             this.Close();
         }
 

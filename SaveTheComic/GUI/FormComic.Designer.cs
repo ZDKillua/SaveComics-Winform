@@ -155,7 +155,7 @@
             this.dtpDate.Name = "dtpDate";
             this.dtpDate.Size = new System.Drawing.Size(112, 23);
             this.dtpDate.TabIndex = 3;
-            this.dtpDate.Value = new System.DateTime(2021, 1, 18, 0, 0, 0, 0);
+            this.dtpDate.Value = new System.DateTime(2021, 6, 13, 0, 0, 0, 0);
             // 
             // cboLoai
             // 

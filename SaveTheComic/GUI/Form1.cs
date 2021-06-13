@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Globalization;
 using SaveTheComic.DAL;
+using SaveTheComic.BUS;
 
 namespace SaveTheComic.GUI
 {
@@ -62,12 +63,23 @@ namespace SaveTheComic.GUI
 
             cboLoc.Items.Add("Lần đọc gần nhất");
             cboLoc.Items.Add("Lần đọc trễ nhất");
-            Form1.Alert("Hello !"  , AlertForm.enmType.Success);
+            AlertForm.Alert("Hello !"  , AlertForm.enmType.Success);
         }
 
-        public void loadFlowLayout()
+        public void loadFlowLayout(int maLoai = -1)
         {
             flowLayoutPanel1.Controls.Clear();
+
+            if (maLoai != -1)
+            {
+                List<ucComic> listTemp = this.ListUCTruyens.Where(x => x.t.maLoai == maLoai).ToList();
+
+                foreach (ucComic item in listTemp)
+                {
+                    flowLayoutPanel1.Controls.Add(item);
+                }
+                return;
+            }
 
             foreach (ucComic item in this.ListUCTruyens)
             {
@@ -111,6 +123,7 @@ namespace SaveTheComic.GUI
 
         public void form_close(object sender, FormClosedEventArgs e)
         {
+            loadAllTruyen();
             loadFlowLayout();
         }
 
@@ -118,7 +131,7 @@ namespace SaveTheComic.GUI
         {
             if (this.curUC == null)
             {
-                Alert("Chưa chọn truyện cần xử lý", AlertForm.enmType.Info);
+                AlertForm.Alert("Chưa chọn truyện cần xử lý", AlertForm.enmType.Info);
                 return;
             }
 
@@ -131,7 +144,10 @@ namespace SaveTheComic.GUI
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            
+            if (this.curUC != null)
+                BUSTruyen.xoaTruyen(this.curUC.t);
+            loadAllTruyen();
+            loadFlowLayout();
         }
 
         private void sideBar_Animation(object sender, EventArgs e)
@@ -152,25 +168,7 @@ namespace SaveTheComic.GUI
         {
             Button btn = sender as Button;
             sideBar_Animation(sender, e);
-            loadTruyenTheoDM(btn.Tag.ToString());
-            loadFlowLayout();
-        }
-
-        public void loadTruyenTheoDM(string maLoai)
-        {
-            flowLayoutPanel1.Controls.Clear();
-            List<ucComic> ListTruyenDM = this.ListUCTruyens.Where(x => x.t.maLoai.ToString() == maLoai).ToList();
-
-            foreach (ucComic item in ListTruyenDM)
-            {
-                flowLayoutPanel1.Controls.Add(item);
-            }
-        }
-
-        public static void Alert(string msg, AlertForm.enmType type)
-        {
-            AlertForm frm = new AlertForm();
-            frm.showAlert(msg, type);
+            loadFlowLayout(int.Parse(btn.Tag.ToString()));
         }
 
         private void cboLoc_SelectedIndexChanged(object sender, EventArgs e)

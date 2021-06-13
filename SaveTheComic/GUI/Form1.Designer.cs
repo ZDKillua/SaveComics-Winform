@@ -202,6 +202,7 @@
             this.btnAll.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnAll.Size = new System.Drawing.Size(185, 58);
             this.btnAll.TabIndex = 0;
+            this.btnAll.Tag = "0";
             this.btnAll.Text = "All";
             this.btnAll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAll.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
