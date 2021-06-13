@@ -1,4 +1,4 @@
-﻿namespace SaveTheComic
+﻿namespace SaveTheComic.GUI
 {
     partial class Form1
     {
@@ -106,6 +106,7 @@
             this.btnOthers.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnOthers.Size = new System.Drawing.Size(185, 58);
             this.btnOthers.TabIndex = 5;
+            this.btnOthers.Tag = "4";
             this.btnOthers.Text = "Others";
             this.btnOthers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOthers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -138,6 +139,7 @@
             this.btnManga.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnManga.Size = new System.Drawing.Size(185, 58);
             this.btnManga.TabIndex = 3;
+            this.btnManga.Tag = "3";
             this.btnManga.Text = "Manga";
             this.btnManga.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnManga.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -158,6 +160,7 @@
             this.btnManhua.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnManhua.Size = new System.Drawing.Size(185, 58);
             this.btnManhua.TabIndex = 2;
+            this.btnManhua.Tag = "2";
             this.btnManhua.Text = "Manhua";
             this.btnManhua.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnManhua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -178,6 +181,7 @@
             this.btnManhwa.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnManhwa.Size = new System.Drawing.Size(185, 58);
             this.btnManhwa.TabIndex = 1;
+            this.btnManhwa.Tag = "1";
             this.btnManhwa.Text = "Manhwa";
             this.btnManhwa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnManhwa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

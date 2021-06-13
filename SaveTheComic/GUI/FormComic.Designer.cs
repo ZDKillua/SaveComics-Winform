@@ -1,4 +1,4 @@
-﻿namespace SaveTheComic
+﻿namespace SaveTheComic.GUI
 {
     partial class FormComic
     {

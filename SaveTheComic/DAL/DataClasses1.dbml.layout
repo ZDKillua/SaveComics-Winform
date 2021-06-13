@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataClasses1">
+  <DataContextMoniker Name="/DataClasses1DataContext" />
+  <nestedChildShapes>
+    <classShape Id="53752786-f52b-442e-9a62-8e2a7fd065dc" absoluteBounds="0.75, 1.625, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/DataClasses1DataContext/LoaiTruyen" />
+      <nestedChildShapes>
+        <elementListCompartment Id="45e26cf1-72b9-4cb5-8e25-ec5075aee821" absoluteBounds="0.765, 2.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f3a15ea1-d8ad-48c3-b529-5f4fdb0c7e09" absoluteBounds="3.5, 1, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/DataClasses1DataContext/Truyen" />
+      <nestedChildShapes>
+        <elementListCompartment Id="346b5adf-e2e1-4921-bf71-7cf4a72b2202" absoluteBounds="3.515, 1.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.22199625651042); (3.5 : 2.22199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClasses1DataContext/LoaiTruyen/LoaiTruyen_Truyen" />
+      <nodes>
+        <classShapeMoniker Id="53752786-f52b-442e-9a62-8e2a7fd065dc" />
+        <classShapeMoniker Id="f3a15ea1-d8ad-48c3-b529-5f4fdb0c7e09" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SaveTheComic
+namespace SaveTheComic.GUI
 {
     public partial class AlertForm : Form
     {
