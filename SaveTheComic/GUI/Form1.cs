@@ -66,13 +66,26 @@ namespace SaveTheComic.GUI
             AlertForm.Alert("Hello !"  , AlertForm.enmType.Success);
         }
 
-        public void loadFlowLayout(int maLoai = -1)
+        public void loadAllTruyen()
+        {
+            this.curUC = null;
+            this.ListUCTruyens.Clear();
+            foreach (Truyen item in DBGet<Truyen>.getDatas())
+            {
+                ucComic uc = new ucComic(item);
+                this.ListUCTruyens.Add(uc);
+                uc.picAnh.Click += new EventHandler(pictureBoxClick);
+            }
+        }
+
+        public void loadFlowLayout(int maLoai = -2)
         {
             flowLayoutPanel1.Controls.Clear();
 
-            if (maLoai != -1)
+            // Load theo loại truyện
+            if (maLoai != -2 && maLoai != -1)
             {
-                List<ucComic> listTemp = this.ListUCTruyens.Where(x => x.t.maLoai == maLoai).ToList();
+                List<ucComic> listTemp = this.ListUCTruyens.Where(x => x.t.maLoai == maLoai && x.t.blackList == false).ToList();
 
                 foreach (ucComic item in listTemp)
                 {
@@ -81,20 +94,24 @@ namespace SaveTheComic.GUI
                 return;
             }
 
+            // Load black list
+            if (maLoai == -1)
+            {
+                List<ucComic> listBL = this.ListUCTruyens.Where(x => x.t.blackList == true).ToList();
+
+                foreach (ucComic item in listBL)
+                {
+                    flowLayoutPanel1.Controls.Add(item);
+                }
+                return;
+            }
+
+            // Load all truyện
             foreach (ucComic item in this.ListUCTruyens)
             {
+                if (item.t.blackList == true)
+                    continue;
                 flowLayoutPanel1.Controls.Add(item);
-            }
-        }
-
-        public void loadAllTruyen()
-        {
-            this.ListUCTruyens.Clear();
-            foreach (Truyen item in DBGet<Truyen>.getDatas())
-            {
-                ucComic uc = new ucComic(item);
-                this.ListUCTruyens.Add(uc);
-                uc.picAnh.Click += new EventHandler(pictureBoxClick);
             }
         }
 
@@ -108,9 +125,14 @@ namespace SaveTheComic.GUI
                 if (this.curUC == null)
                     return;
                 this.curUC.BorderStyle = BorderStyle.None;
+                if (this.curUC.t.maTruyen.ToString() == pb.Name && this.curUC.BorderStyle == BorderStyle.None)
+                {
+                    this.curUC = null;
+                    return;
+                }
             }
             this.curUC = ListUCTruyens.FirstOrDefault(x => x.t.maTruyen.ToString() == pb.Name);
-            this.curUC.BorderStyle = BorderStyle.FixedSingle;
+            this.curUC.BorderStyle = BorderStyle.Fixed3D;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -131,7 +153,7 @@ namespace SaveTheComic.GUI
         {
             if (this.curUC == null)
             {
-                AlertForm.Alert("Chưa chọn truyện cần xử lý", AlertForm.enmType.Info);
+                AlertForm.Alert("Bạn chưa chọn truyện", AlertForm.enmType.Info);
                 return;
             }
 
@@ -160,7 +182,6 @@ namespace SaveTheComic.GUI
         private void btnAll_Click(object sender, EventArgs e)
         {
             sideBar_Animation(sender, e);
-            loadAllTruyen();
             loadFlowLayout();
         }
 
@@ -184,5 +205,26 @@ namespace SaveTheComic.GUI
                 loadFlowLayout();
             }
         }
+
+        private void btnBlackList_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            sideBar_Animation(sender, e);
+            loadFlowLayout(int.Parse(btn.Tag.ToString()));
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Controls.Clear();
+
+            List<ucComic> searchList = this.ListUCTruyens.Where(x => x.t.tenTruyen.Contains(txtSearch.Text)).ToList();
+
+            foreach (ucComic item in searchList)
+            {
+                flowLayoutPanel1.Controls.Add(item);
+            }
+        }
+
+        
     }
 }

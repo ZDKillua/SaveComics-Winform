@@ -81,6 +81,7 @@ namespace SaveTheComic.GUI
                 cboLoai.SelectedItem = DBGet<LoaiTruyen>.getData("maLoai", t.maLoai.ToString()).tenLoai;
                 dtpDate.Value = t.ngayDocCuoi.Value;
                 chkHot.Checked = t.hot.Value;
+                chkBL.Checked = t.blackList.Value;
                 txtMota.Text = t.noiDung;
 
                 MemoryStream memoryStream = new MemoryStream(t.img.ToArray());
@@ -95,24 +96,6 @@ namespace SaveTheComic.GUI
 
             cboLoai.SelectedIndex = 0;
             dtpDate.Value = DateTime.Now;
-        }
-
-        private void btnFile_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog dlg = new OpenFileDialog();
-            if (dlg.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    pictureBox1.Image = Image.FromFile(dlg.FileName);
-                    this.labAnh.Hide();
-                }
-                catch
-                {
-                    MessageBox.Show("Bạn phải chọn file ảnh");
-                }
-                
-            }
         }
 
         private void btnXN_Click(object sender, EventArgs e)
@@ -135,6 +118,7 @@ namespace SaveTheComic.GUI
             t.maLoai = DBGet<LoaiTruyen>.getData("tenLoai", cboLoai.SelectedItem.ToString()).maLoai;
             t.ngayDocCuoi = dtpDate.Value;
             t.hot = chkHot.Checked;
+            t.blackList = chkBL.Checked;
             t.noiDung = txtMota.Text;
 
             // lưu image vào database
@@ -161,6 +145,24 @@ namespace SaveTheComic.GUI
                 errorProvider1.SetError(txt, null);
             else
                 errorProvider1.SetError(txt, "Không được để trống");
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    pictureBox1.Image = Image.FromFile(dlg.FileName);
+                    this.labAnh.Hide();
+                }
+                catch
+                {
+                    MessageBox.Show("Bạn phải chọn file ảnh");
+                }
+
+            }
         }
     }
 }
