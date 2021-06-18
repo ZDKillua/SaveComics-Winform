@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Globalization;
 using SaveTheComic.DAL;
+using SaveTheComic.BUS;
 
 namespace SaveTheComic.GUI
 {
@@ -62,27 +63,55 @@ namespace SaveTheComic.GUI
 
             cboLoc.Items.Add("Lần đọc gần nhất");
             cboLoc.Items.Add("Lần đọc trễ nhất");
-            Form1.Alert("Hello !"  , AlertForm.enmType.Success);
-        }
-
-        public void loadFlowLayout()
-        {
-            flowLayoutPanel1.Controls.Clear();
-
-            foreach (ucComic item in this.ListUCTruyens)
-            {
-                flowLayoutPanel1.Controls.Add(item);
-            }
+            AlertForm.Alert("Hello !"  , AlertForm.enmType.Success);
         }
 
         public void loadAllTruyen()
         {
+            this.curUC = null;
             this.ListUCTruyens.Clear();
             foreach (Truyen item in DBGet<Truyen>.getDatas())
             {
                 ucComic uc = new ucComic(item);
                 this.ListUCTruyens.Add(uc);
                 uc.picAnh.Click += new EventHandler(pictureBoxClick);
+            }
+        }
+
+        public void loadFlowLayout(int maLoai = -2)
+        {
+            flowLayoutPanel1.Controls.Clear();
+
+            // Load theo loại truyện
+            if (maLoai != -2 && maLoai != -1)
+            {
+                List<ucComic> listTemp = this.ListUCTruyens.Where(x => x.t.maLoai == maLoai && x.t.blackList == false).ToList();
+
+                foreach (ucComic item in listTemp)
+                {
+                    flowLayoutPanel1.Controls.Add(item);
+                }
+                return;
+            }
+
+            // Load black list
+            if (maLoai == -1)
+            {
+                List<ucComic> listBL = this.ListUCTruyens.Where(x => x.t.blackList == true).ToList();
+
+                foreach (ucComic item in listBL)
+                {
+                    flowLayoutPanel1.Controls.Add(item);
+                }
+                return;
+            }
+
+            // Load all truyện
+            foreach (ucComic item in this.ListUCTruyens)
+            {
+                if (item.t.blackList == true)
+                    continue;
+                flowLayoutPanel1.Controls.Add(item);
             }
         }
 
@@ -96,9 +125,14 @@ namespace SaveTheComic.GUI
                 if (this.curUC == null)
                     return;
                 this.curUC.BorderStyle = BorderStyle.None;
+                if (this.curUC.t.maTruyen.ToString() == pb.Name && this.curUC.BorderStyle == BorderStyle.None)
+                {
+                    this.curUC = null;
+                    return;
+                }
             }
             this.curUC = ListUCTruyens.FirstOrDefault(x => x.t.maTruyen.ToString() == pb.Name);
-            this.curUC.BorderStyle = BorderStyle.FixedSingle;
+            this.curUC.BorderStyle = BorderStyle.Fixed3D;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -111,6 +145,7 @@ namespace SaveTheComic.GUI
 
         public void form_close(object sender, FormClosedEventArgs e)
         {
+            loadAllTruyen();
             loadFlowLayout();
         }
 
@@ -118,7 +153,7 @@ namespace SaveTheComic.GUI
         {
             if (this.curUC == null)
             {
-                Alert("Chưa chọn truyện cần xử lý", AlertForm.enmType.Info);
+                AlertForm.Alert("Bạn chưa chọn truyện", AlertForm.enmType.Info);
                 return;
             }
 
@@ -131,7 +166,10 @@ namespace SaveTheComic.GUI
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            
+            if (this.curUC != null)
+                BUSTruyen.xoaTruyen(this.curUC.t);
+            loadAllTruyen();
+            loadFlowLayout();
         }
 
         private void sideBar_Animation(object sender, EventArgs e)
@@ -144,7 +182,6 @@ namespace SaveTheComic.GUI
         private void btnAll_Click(object sender, EventArgs e)
         {
             sideBar_Animation(sender, e);
-            loadAllTruyen();
             loadFlowLayout();
         }
 
@@ -152,25 +189,7 @@ namespace SaveTheComic.GUI
         {
             Button btn = sender as Button;
             sideBar_Animation(sender, e);
-            loadTruyenTheoDM(btn.Tag.ToString());
-            loadFlowLayout();
-        }
-
-        public void loadTruyenTheoDM(string maLoai)
-        {
-            flowLayoutPanel1.Controls.Clear();
-            List<ucComic> ListTruyenDM = this.ListUCTruyens.Where(x => x.t.maLoai.ToString() == maLoai).ToList();
-
-            foreach (ucComic item in ListTruyenDM)
-            {
-                flowLayoutPanel1.Controls.Add(item);
-            }
-        }
-
-        public static void Alert(string msg, AlertForm.enmType type)
-        {
-            AlertForm frm = new AlertForm();
-            frm.showAlert(msg, type);
+            loadFlowLayout(int.Parse(btn.Tag.ToString()));
         }
 
         private void cboLoc_SelectedIndexChanged(object sender, EventArgs e)
@@ -186,5 +205,26 @@ namespace SaveTheComic.GUI
                 loadFlowLayout();
             }
         }
+
+        private void btnBlackList_Click(object sender, EventArgs e)
+        {
+            Button btn = sender as Button;
+            sideBar_Animation(sender, e);
+            loadFlowLayout(int.Parse(btn.Tag.ToString()));
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            flowLayoutPanel1.Controls.Clear();
+
+            List<ucComic> searchList = this.ListUCTruyens.Where(x => x.t.tenTruyen.Contains(txtSearch.Text)).ToList();
+
+            foreach (ucComic item in searchList)
+            {
+                flowLayoutPanel1.Controls.Add(item);
+            }
+        }
+
+        
     }
 }

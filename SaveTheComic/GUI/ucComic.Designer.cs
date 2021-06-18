@@ -36,6 +36,7 @@
             this.labChap = new System.Windows.Forms.Label();
             this.labDate = new System.Windows.Forms.Label();
             this.labHot = new System.Windows.Forms.Label();
+            this.elipseControl1 = new SaveTheComic.ElipseControl();
             ((System.ComponentModel.ISupportInitialize)(this.picAnh)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,9 +60,9 @@
             this.label2.ForeColor = System.Drawing.Color.Yellow;
             this.label2.Location = new System.Drawing.Point(8, 194);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 16);
+            this.label2.Size = new System.Drawing.Size(41, 16);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Chap đã đọc";
+            this.label2.Text = "Chap";
             // 
             // label4
             // 
@@ -71,9 +72,9 @@
             this.label4.ForeColor = System.Drawing.Color.Yellow;
             this.label4.Location = new System.Drawing.Point(8, 215);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(92, 16);
+            this.label4.Size = new System.Drawing.Size(70, 16);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Lần đọc cuối";
+            this.label4.Text = "Last read";
             // 
             // picAnh
             // 
@@ -123,6 +124,11 @@
             this.labHot.Text = "HOT";
             this.labHot.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // elipseControl1
+            // 
+            this.elipseControl1.CornerRadius = 0;
+            this.elipseControl1.TargetControl = this;
+            // 
             // ucComic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,5 +158,6 @@
         private System.Windows.Forms.Label labDate;
         public System.Windows.Forms.PictureBox picAnh;
         private System.Windows.Forms.Label labHot;
+        private ElipseControl elipseControl1;
     }
 }

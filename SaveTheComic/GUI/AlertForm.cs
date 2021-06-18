@@ -142,6 +142,10 @@ namespace SaveTheComic.GUI
             }
         }
 
-
+        public static void Alert(string msg, AlertForm.enmType type)
+        {
+            AlertForm frm = new AlertForm();
+            frm.showAlert(msg, type);
+        }
     }
 }

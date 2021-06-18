@@ -14,12 +14,14 @@ namespace SaveTheComic.BUS
         {
             if (DBGet<Truyen>.getData("tenTruyen", t.tenTruyen) != null)
             {
-                Alert("Truyện đã tồn tại", AlertForm.enmType.Info);
+                //Alert("Truyện đã tồn tại", AlertForm.enmType.Info);
+                AlertForm.Alert("Truyện đã tồn tại", AlertForm.enmType.Info);
                 return;
             }
 
             DBTruyen.addData(t);
-            Alert("Đã thêm " + t.tenTruyen, AlertForm.enmType.Success);
+            //Alert("Đã thêm " + t.tenTruyen, AlertForm.enmType.Success);
+            AlertForm.Alert("Đã thêm " + t.tenTruyen, AlertForm.enmType.Success);
         }
 
         public static void xoaTruyen(Truyen t)

@@ -83,6 +83,16 @@ namespace SaveTheComic.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlackList1 {
+            get {
+                object obj = ResourceManager.GetObject("BlackList1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap china32 {
             get {
                 object obj = ResourceManager.GetObject("china32", resourceCulture);
@@ -206,6 +216,16 @@ namespace SaveTheComic.Properties {
         internal static System.Drawing.Bitmap Others32 {
             get {
                 object obj = ResourceManager.GetObject("Others32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap search24 {
+            get {
+                object obj = ResourceManager.GetObject("search24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

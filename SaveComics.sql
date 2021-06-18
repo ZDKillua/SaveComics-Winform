@@ -26,4 +26,5 @@ Create table Truyen(
 Insert LoaiTruyen Values
 ('Manhwa'),
 ('Manhua'),
-('Manga')
+('Manga'),
+('Others')
