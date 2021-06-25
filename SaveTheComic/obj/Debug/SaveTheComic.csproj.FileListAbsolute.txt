@@ -43,3 +43,17 @@ D:\HocTap\My Projects\SaveComics\SaveTheComic\obj\Debug\SaveTheComic.GUI.Form1.r
 D:\HocTap\My Projects\SaveComics\SaveTheComic\obj\Debug\SaveTheComic.GUI.AlertForm.resources
 D:\HocTap\My Projects\SaveComics\SaveTheComic\obj\Debug\SaveTheComic.GUI.FormComic.resources
 D:\HocTap\My Projects\SaveComics\SaveTheComic\obj\Debug\SaveTheComic.GUI.ucComic.resources
+C:\Users\killu\OneDrive\Máy tính\SaveComics\SaveTheComic\bin\Debug\SaveTheComic.exe.config
+C:\Users\killu\OneDrive\Máy tính\SaveComics\SaveTheComic\obj\Debug\SaveTheComic.exe
+C:\Users\killu\OneDrive\Máy tính\SaveComics\SaveTheComic\obj\Debug\SaveTheComic.pdb
+D:\HocTap\My Projects\AppSaveComics\SaveTheComic\bin\Debug\SaveTheComic.exe.config
+D:\HocTap\My Projects\AppSaveComics\SaveTheComic\bin\Debug\SaveTheComic.exe
+D:\HocTap\My Projects\AppSaveComics\SaveTheComic\bin\Debug\SaveTheComic.pdb
+D:\HocTap\My Projects\AppSaveComics\SaveTheComic\obj\Debug\SaveTheComic.GUI.AlertForm.resources
+D:\HocTap\My Projects\AppSaveComics\SaveTheComic\obj\Debug\SaveTheComic.GUI.Form1.resources
+D:\HocTap\My Projects\AppSaveComics\SaveTheComic\obj\Debug\SaveTheComic.GUI.FormComic.resources
+D:\HocTap\My Projects\AppSaveComics\SaveTheComic\obj\Debug\SaveTheComic.Properties.Resources.resources
+D:\HocTap\My Projects\AppSaveComics\SaveTheComic\obj\Debug\SaveTheComic.GUI.ucComic.resources
+D:\HocTap\My Projects\AppSaveComics\SaveTheComic\obj\Debug\SaveTheComic.csproj.GenerateResource.Cache
+D:\HocTap\My Projects\AppSaveComics\SaveTheComic\obj\Debug\SaveTheComic.exe
+D:\HocTap\My Projects\AppSaveComics\SaveTheComic\obj\Debug\SaveTheComic.pdb

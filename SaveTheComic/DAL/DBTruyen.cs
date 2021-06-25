@@ -44,7 +44,7 @@ namespace SaveTheComic.DAL
                 data.tenTruyen = t.tenTruyen;
                 data.chap = t.chap;
                 data.maLoai = t.maLoai;
-                data.ngayDocCuoi = t.ngayDocCuoi;
+                data.ngayDocCuoi = DateTime.Now;
                 data.img = t.img;
                 data.hot = t.hot;
                 data.blackList = t.blackList;

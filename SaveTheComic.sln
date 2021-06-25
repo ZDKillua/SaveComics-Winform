@@ -5,16 +5,27 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaveTheComic", "SaveTheComic\SaveTheComic.csproj", "{66D2E6E3-4E81-415E-9D1F-1A56FE6B2AF7}"
 EndProject
+Project("{840C416C-B8F3-42BC-B0DD-F6BB14C9F8CB}") = "SaveComics", "SaveComics\SaveComics.aiproj", "{B68684E4-DB2C-4A7C-BF15-6DEDF30875A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		All|Any CPU = All|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66D2E6E3-4E81-415E-9D1F-1A56FE6B2AF7}.All|Any CPU.ActiveCfg = Release|Any CPU
+		{66D2E6E3-4E81-415E-9D1F-1A56FE6B2AF7}.All|Any CPU.Build.0 = Release|Any CPU
 		{66D2E6E3-4E81-415E-9D1F-1A56FE6B2AF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{66D2E6E3-4E81-415E-9D1F-1A56FE6B2AF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66D2E6E3-4E81-415E-9D1F-1A56FE6B2AF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66D2E6E3-4E81-415E-9D1F-1A56FE6B2AF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B68684E4-DB2C-4A7C-BF15-6DEDF30875A5}.All|Any CPU.ActiveCfg = DefaultBuild
+		{B68684E4-DB2C-4A7C-BF15-6DEDF30875A5}.All|Any CPU.Build.0 = DefaultBuild
+		{B68684E4-DB2C-4A7C-BF15-6DEDF30875A5}.Debug|Any CPU.ActiveCfg = DefaultBuild
+		{B68684E4-DB2C-4A7C-BF15-6DEDF30875A5}.Debug|Any CPU.Build.0 = DefaultBuild
+		{B68684E4-DB2C-4A7C-BF15-6DEDF30875A5}.Release|Any CPU.ActiveCfg = DefaultBuild
+		{B68684E4-DB2C-4A7C-BF15-6DEDF30875A5}.Release|Any CPU.Build.0 = DefaultBuild
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
