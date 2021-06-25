@@ -166,8 +166,12 @@ namespace SaveTheComic.GUI
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (this.curUC != null)
-                BUSTruyen.xoaTruyen(this.curUC.t);
+            if (this.curUC == null)
+            {
+                AlertForm.Alert("Bạn chưa chọn truyện", AlertForm.enmType.Info);
+                return;
+            }
+            BUSTruyen.xoaTruyen(this.curUC.t);
             loadAllTruyen();
             loadFlowLayout();
         }

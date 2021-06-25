@@ -141,6 +141,7 @@
             this.Controls.Add(this.labChap);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.labDate);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "ucComic";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Size = new System.Drawing.Size(232, 246);
